@@ -1,8 +1,8 @@
 <template>
-    <div id="index">
+    <div id="home">
         <el-container>
             <my-header></my-header>
-            <router-view class="my-container"></router-view>
+            <router-view></router-view>
             <my-footer></my-footer>
         </el-container>
     </div>
@@ -12,7 +12,7 @@
 import myHeader from "@/layout/header"
 import myFooter from "@/layout/footer"
 export default {
-    name: 'index',
+    name: 'home',
     components:{ myHeader,myFooter }
 }
 </script>

@@ -1,19 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const index = () => import('@/page/index/index')
+const home = () => import('@/home')
 
 Vue.use(Router)
 
 export const routes = [
+
     {
-        path: '',
-        redirect: '/index'
-    },
-    {
-        name: 'index',
-        path: '/index',
-        component: index,
+        name: 'home',
+        path: '/',
+        component: home,
+        children:[
+            {
+                path: '/',
+                component: r => require.ensure([], () => r(require('@/page/index')), 'index')
+            },
+            {
+                path: '/log',
+                component: r => require.ensure([], () => r(require('@/page/log')), 'log')
+            }
+        ]
     }
 ]
 
